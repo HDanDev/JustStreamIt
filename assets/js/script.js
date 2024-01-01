@@ -40,7 +40,7 @@ class MovieModal {
     }
 
     async init(){
-        const movieData = await paginatedFetchData(this.movie.id);
+        const movieData = await fetchData(`${apiUrl}${this.movie.id}`);
     
         const modal = document.getElementById(this.targetElementId);
         modal.innerHTML = '';
@@ -63,11 +63,12 @@ class MovieModal {
         detailsBlock.classList.add('modal-img-block');
     
         const img = document.createElement('img');
-        img.src = img.complete ? movieData.image_url : '../assets/img/JSI_logo_only_w.png';
+        img.src = movieData.image_url;
         img.alt = movieData.title;
         img.classList.add('modal-img');   
     
         imgBlock.appendChild(img)
+        img.onerror = ()=>{img.src = '../assets/img/JSI_logo_only_w.png'; img.classList.add('broken-img');}
         
         detailsBlock.appendChild(descriptionBlock)
         detailsBlock.appendChild(imgBlock)
@@ -77,16 +78,16 @@ class MovieModal {
         modal.appendChild(movieTitleBlock);
         modal.appendChild(detailsBlock);
     
-        this.openModal()
+        this.openModal(modal)
     }
 
-    openModal() {
+    openModal(targetElement) {
         document.getElementById('movieModal').style.display = 'flex';
         
         document.getElementById('closeModalBtn').addEventListener('click', this.closeModal);
         
-        this.targetElementId.addEventListener('click', (event) => {
-            if (event.target === this.targetElementId) {
+        targetElement.addEventListener('click', (event) => {
+            if (event.target === targetElement) {
                 this.closeModal(); 
             }
         });
