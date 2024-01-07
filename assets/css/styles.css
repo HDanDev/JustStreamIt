@@ -149,11 +149,23 @@ h3:first-child {
 }
 
 .best-movie-section {
+    position: relative;
     margin: auto;
     height: 400px;
     width: 90%;
-    background-color: #ffffff49;
+    background-color: #ffffff3a;
+    border: 3px solid linear-gradient(to right, black, rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), black);
     border-radius: 8px;
+}
+
+#backgroundImage {
+    position: absolute;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+    opacity: 20%;
 }
 
 .category-carousel {

@@ -1,13 +1,20 @@
 class MovieRow {
-    constructor(filter, targetElementId, sampleSize = 7) {
+    constructor(filter, targetElementId, sampleSize = 7, data = null) {
         this.filter = filter;
         this.targetElementId = targetElementId;
         this.sampleSize = sampleSize;
+        this.data = data;
         this.init();
     }
 
     async init(){
-        const moviesDataSet = await paginatedFetchData(this.filter);
+        let moviesDataSet;
+        if (this.data === null) {
+            moviesDataSet = await paginatedFetchData(this.filter);
+        }
+        else {
+            moviesDataSet = this.data;
+        }
         const moviesSample = moviesDataSet.slice(0, this.sampleSize); 
     
         const movieRow = document.getElementById(this.targetElementId);
@@ -41,12 +48,12 @@ class MovieRow {
             movieContainer.classList.add('thumbnail-container');
             if (index === 0) {
                 movieContainer.id = 'first-item';
-                hoverListener(movieContainer, leftArrow, 'adjusted-right');
+                this.hoverListener(movieContainer, leftArrow, 'adjusted-right');
             }
         
             if (index === movies.length - 1) {
                 movieContainer.id = 'last-item';
-                hoverListener(movieContainer, rightArrow, 'adjusted-left');  
+                this.hoverListener(movieContainer, rightArrow, 'adjusted-left');  
             }
 
             const movieTitle = document.createElement('h2');
@@ -72,6 +79,18 @@ class MovieRow {
             targetElementId.appendChild(movieContainer);
         });
     }
+
+    hoverListener(hoveredElement, targetElement, newClass){
+
+        hoveredElement.addEventListener('mouseover', () => {
+            targetElement.classList.add(newClass);    
+        });
+    
+        hoveredElement.addEventListener('mouseout', () => {
+            targetElement.classList.remove(newClass);
+        });
+    }
+
 
     async displayMovieDetails(movie) {
         const movieModal = new MovieModal(movie);   

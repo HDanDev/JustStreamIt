@@ -12,7 +12,7 @@ async function fetchData(url) {
     }
 }
 
-async function paginatedFetchData(filter, iteration = 2) {
+async function paginatedFetchData(filter, iteration = 2, createTuple = false) {
     try {
         const promises = [];
         
@@ -26,6 +26,10 @@ async function paginatedFetchData(filter, iteration = 2) {
         const results = await Promise.all(promises);
     
         const allMovies = results.flatMap(result => result.results);
+        
+        if (createTuple) {
+            return await processResponse(allMovies)
+        }
     
         return allMovies;
         
@@ -34,26 +38,48 @@ async function paginatedFetchData(filter, iteration = 2) {
     }
 }
 
-function hoverListener(hoveredElement, targetElement, newClass){
+async function processResponse(apiResponse) {
+    try {
+        const firstEntry = apiResponse[0].id;
+        const firstEntryUrl = `${apiUrl}${firstEntry}`;
+        const restEntries = apiResponse.slice(1);
 
-    hoveredElement.addEventListener('mouseover', () => {
-        targetElement.classList.add(newClass);    
-    });
-  
-    hoveredElement.addEventListener('mouseout', () => {
-        targetElement.classList.remove(newClass);
-    });
+        await BackgroundImgLoad(firstEntryUrl);
+
+        return [firstEntry, restEntries];
+    } catch (error) {
+        console.error('Error processing response:', error);
+    }
+}
+
+async function BackgroundImgLoad(url) {
+    try {
+        const movie = await fetchData(url);
+
+        if (movie && movie.image_url) {
+            const backgroundImageDom = document.getElementById('backgroundImage');
+            backgroundImageDom.src = movie.image_url;
+        } else {
+            console.error('Invalid movie data or missing image_url property');
+        }
+    } catch (error) {
+        console.error('Error loading background image:', error);
+    }
 }
 
 window.addEventListener('load', function() {
     init();
 });
 
-function init(){
-    
-    const topRatedMoviesSection = new MovieRow('sort_by=-imdb_score', 'topRatedMoviesSection');   
-    const fantasySection = new MovieRow('genre=fantasy&sort_by=-imdb_score', 'fantasySection');   
-    const adventureSection = new MovieRow('genre=adventure&sort_by=-imdb_score', 'adventureSection');   
-    const animationSection = new MovieRow('genre=animation&sort_by=-imdb_score', 'animationSection');   
+async function init(){
+    try {
+        const initialMostRatedList = await paginatedFetchData('sort_by=-imdb_score', 3, true);
+        const topRatedMoviesSection = new MovieRow('sort_by=-imdb_score', 'topRatedMoviesSection', 7, data = initialMostRatedList[1]);   
+        const fantasySection = new MovieRow('genre=fantasy&sort_by=-imdb_score', 'fantasySection');   
+        const adventureSection = new MovieRow('genre=adventure&sort_by=-imdb_score', 'adventureSection');   
+        const animationSection = new MovieRow('genre=animation&sort_by=-imdb_score', 'animationSection');   
 
+    } catch (error) {
+        console.error('Error initializing:', error);
+    }
 }
