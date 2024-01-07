@@ -4,34 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/icomoon.css" />
     <link rel="icon" href="../assets/img/JSI_logo_only.png" type="image/x-icon">
     <title>Just Stream It</title>
 </head>
 <body>
-    <h3>Trending</h3>
-    <div class="category-carousel" id="bestMovieSection">
+    <header class="menu">
+        <div class="menu-left-block">
+            <div class="menu-brand-block">
+                <img class="menu-brand-logo" src="../assets/img/JSI_logo_only_w.png" alt="Brand logo">
+                <img class="menu-brand-name" src="../assets/img/JSI_name_only_w.png" alt="Brand name">
+            </div>
+            <div class="menu-nav-block">
+                <button class="menu-nav-item">Home</button>
+                <button class="menu-nav-item">Categories</button>
+            </div>
+        </div>
+        
+        <div class="menu-profile-block">
+            <span class="menu-profile-name">Dan Hannay</span>
+            <img class="menu-profile-picture" src="../assets/img/CVPortrait.png" alt="Profile Picture">
+        </div>
+    </header>
+
+    <div class="categories-block">
+        <!-- Trending section -->
+        <div class="category-title-container">
+            <div class="separation-line-start"></div>
+            <h3>Trending</h3>
+            <div class="separation-line-end"></div>
+        </div>
+        <div class="best-movie-section"></div>
+
+        <!-- Top rated section -->
+        <div class="category-title-container">
+            <div class="separation-line-start"></div>
+            <h3>Top rated</h3>
+            <div class="separation-line-end"></div>
+        </div>
+        <div class="category-carousel" id="topRatedMoviesSection"></div>
+
+        <!-- Fantasy section -->
+        <div class="category-title-container">
+            <div class="separation-line-start"></div>
+            <h3>Fantasy</h3>
+            <div class="separation-line-end"></div>
+        </div>
+        <div class="category-carousel" id="fantasySection"></div>
+
+        <!-- Adventure section -->
+        <div class="category-title-container">
+            <div class="separation-line-start"></div>
+            <h3>Adventure</h3>
+            <div class="separation-line-end"></div>
+        </div>
+        <div class="category-carousel" id="adventureSection"></div>
+
+        <!-- Animation section -->
+        <div class="category-title-container">
+            <div class="separation-line-start"></div>
+            <h3>Animation</h3>
+            <div class="separation-line-end"></div>
+        </div>
+        <div class="category-carousel" id="animationSection">
+        </div>
     </div>
 
-    <h3>Top rated</h3>
-    <div class="category-carousel" id="topRatedMoviesSection">
-    </div>
-
-    <h3>Fantasy</h3>
-    <div class="category-carousel" id="fantasySection"></div>
-
-    <h3>Adventure</h3>
-    <div class="category-carousel" id="adventureSection">
-    </div>
-
-    <h3>Animation</h3>
-    <div class="category-carousel" id="animationSection">
-    </div>
-
+    <footer>
+        <div class="footer-credits">Powered by Thierry Chappuis' OCMovies API</div>
+    </footer>
+    
+    <!-- Modal -->
     <div class="modal" id="movieModal">
         <button id="closeModalBtn">Close</button>
         <div class="modal-container" id="modalContainer"></div>
     </div>
 
-    <script src="../assets/js/script.js"></script>
+    <!-- Scripts -->
+    <script src="../assets/js/MovieModal.js"></script>
+    <script src="../assets/js/MovieRow.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
