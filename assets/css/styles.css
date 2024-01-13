@@ -97,6 +97,7 @@ button:hover {
 .menu-nav-item:hover {
     color: rgb(255, 244, 223);
     transform: scale(110%);
+    background-color: unset;
     cursor: pointer;
 }
 
@@ -184,13 +185,13 @@ h3:first-child {
 }
 
 h1 {
-    text-shadow: 2px 2px black;
+    text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.800);
 }
 
 .top-movie-description {
     margin-top: 24px;
     font-size: 16px;
-    text-shadow: 2px 2px black;
+    text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.800);
 }
 
 .top-movie-img-block {
@@ -404,6 +405,35 @@ footer {
     max-width: 600px;
     margin: 0 auto;
     text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.modal-background {
+    opacity: 0.3;
+}
+
+.modal-details-block {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.modal-description-block {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.modal-description-block p {
+    margin: 0;
+    text-align: start;
 }
 
 .modal-content {
@@ -415,13 +445,27 @@ footer {
     text-align: center;
 }
 
+.modal-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+}
+
 #closeModalBtn {
     position: absolute;
     right: 4px;
     top: 4px;
     cursor: pointer;
     font-size: 24px;
-    text-shadow: 1px 1px black;
+    /* text-shadow: 1px 1px black; */
+    transition-property: transform, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+
+#closeModalBtn:hover {
+    color: rgb(202, 73, 34);
+    transform: scale(120%);
 }
 
 .modal-imdb-rating-block {
@@ -435,27 +479,48 @@ footer {
     margin-left: 4px;
 }
 
+.modal-img {
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.800);
+}
+
+.modal-broken-img {
+    transform: scale(0.8);
+    filter: drop-shadow(2px 4px 6px wheat);
+}
+
+.rating {
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 16px;
+    margin: 0;
+    padding: 8px;
+    border-radius: 30px;
+}
+
 .green {
     color: #006835;
-    font-weight: bold;
+    background-color: #77ffbd;
 }
 
 .purple {
     color: #803D99;
-    font-weight: bold;
+    background-color: #df87ff;
 }
 
 .red {
     color: #D8121A;
-    font-weight: bold;
+    background-color: #ff5257;
 }
 
 .blue {
     color: #1B3E9B;
-    font-weight: bold;
+    background-color: #88a8ff;
 }
 
 .orange {
     color: #F15A24;
-    font-weight: bold;
+    background-color: #ffb99f;
 }
