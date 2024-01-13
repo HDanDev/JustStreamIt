@@ -91,7 +91,6 @@ class MovieRow {
         });
     }
 
-
     async displayMovieDetails(movie) {
         const movieModal = new MovieModal(movie);   
     }

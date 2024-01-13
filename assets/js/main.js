@@ -44,7 +44,7 @@ async function processResponse(apiResponse) {
         const firstEntryUrl = `${apiUrl}${firstEntry}`;
         const restEntries = apiResponse.slice(1);
 
-        await BackgroundImgLoad(firstEntryUrl);
+        await backgroundImgLoad(firstEntryUrl);
 
         return [firstEntry, restEntries];
     } catch (error) {
@@ -52,7 +52,7 @@ async function processResponse(apiResponse) {
     }
 }
 
-async function BackgroundImgLoad(url) {
+async function backgroundImgLoad(url) {
     try {
         const movie = await fetchData(url);
 
@@ -67,6 +67,52 @@ async function BackgroundImgLoad(url) {
     }
 }
 
+async function setTopMovie(movie){
+    const topMovie = await fetchData(`${apiUrl}${movie}`);
+
+    const topMovieBlock = document.getElementById("topMovieBlock");
+    topMovieBlock.innerHTML = '';
+
+    const topMovieDetailBlock = document.createElement('div');
+    topMovieDetailBlock.classList.add('top-movie-details-block');
+
+    const topMovieTitle = document.createElement('h1');
+    topMovieTitle.innerText = `${topMovie.title}`;
+
+    const descriptionBlock = document.createElement('div');
+    descriptionBlock.classList.add('top-movie-description-block');
+
+    const playBtn = document.createElement('button');
+    playBtn.innerText = "Play "
+    const playIcon = document.createElement('i');
+    playIcon.classList.add('icon-play');
+
+    playBtn.appendChild(playIcon);
+
+    const description = document.createElement('p');
+    description.classList.add('top-movie-description');
+    description.innerText = `${topMovie.description}`;
+
+    descriptionBlock.appendChild(topMovieTitle);
+    descriptionBlock.appendChild(playBtn);
+    descriptionBlock.appendChild(description);
+
+    const imgBlock = document.createElement('div');
+    imgBlock.classList.add('top-movie-img-block');
+
+    const img = document.createElement('img');
+    img.src = topMovie.image_url;
+    img.alt = topMovie.title;
+    img.classList.add('top-movie-img');   
+
+    imgBlock.appendChild(img)
+    img.onerror = ()=>{img.src = '../assets/img/JSI_logo_only_w.png'; img.classList.add('broken-img');}
+
+    topMovieDetailBlock.appendChild(descriptionBlock);
+    topMovieDetailBlock.appendChild(imgBlock);
+    topMovieBlock.appendChild(topMovieDetailBlock);
+}
+
 window.addEventListener('load', function() {
     init();
 });
@@ -74,6 +120,7 @@ window.addEventListener('load', function() {
 async function init(){
     try {
         const initialMostRatedList = await paginatedFetchData('sort_by=-imdb_score', 3, true);
+        const topMovie = await setTopMovie(initialMostRatedList[0]);
         const topRatedMoviesSection = new MovieRow('sort_by=-imdb_score', 'topRatedMoviesSection', 7, data = initialMostRatedList[1]);   
         const fantasySection = new MovieRow('genre=fantasy&sort_by=-imdb_score', 'fantasySection');   
         const adventureSection = new MovieRow('genre=adventure&sort_by=-imdb_score', 'adventureSection');   

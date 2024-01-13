@@ -7,6 +7,28 @@ body {
     margin: 0;
 }
 
+button {
+    background-color: black;
+    border: none;
+    border-radius: 4px;
+    color: wheat;
+    font-family: Roboto, Comfortaa, Arial, sans-serif;
+    font-size: 20px;
+    padding: 12px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.800);
+    transition-property: background-color, box-shadow, color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(110%);
+    color: white;
+    box-shadow: none;
+    background-color: grey;
+}
+
 .menu {
     z-index: 999;
     position: fixed;
@@ -148,12 +170,44 @@ h3:first-child {
     opacity: 90%;
 }
 
+.top-movie-block {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 20px;
+}
+
+.top-movie-details-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+h1 {
+    text-shadow: 2px 2px black;
+}
+
+.top-movie-description {
+    margin-top: 24px;
+    font-size: 16px;
+    text-shadow: 2px 2px black;
+}
+
+.top-movie-img-block {
+    padding: 16px 0;
+}
+
+.top-movie-img-block img {
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.800);
+}
+
 .best-movie-section {
     position: relative;
     margin: auto;
-    height: 400px;
+    height: 312px;
     width: 90%;
-    background-color: #ffffff3a;
+    background-color: #ffffff1f;
     border: 3px solid linear-gradient(to right, black, rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), black);
     border-radius: 8px;
 }
@@ -330,6 +384,7 @@ footer {
 }
 
 .modal {
+    z-index: 999;
     display: none;
     position: fixed;
     top: 0;
@@ -339,6 +394,16 @@ footer {
     background: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+}
+
+#modalContainer {
+    position: relative;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .modal-content {
@@ -351,9 +416,46 @@ footer {
 }
 
 #closeModalBtn {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background: #333;
-    border: none;
+    position: absolute;
+    right: 4px;
+    top: 4px;
     cursor: pointer;
+    font-size: 24px;
+    text-shadow: 1px 1px black;
+}
+
+.modal-imdb-rating-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-imdb-rating-block i {
+    margin-left: 4px;
+}
+
+.green {
+    color: #006835;
+    font-weight: bold;
+}
+
+.purple {
+    color: #803D99;
+    font-weight: bold;
+}
+
+.red {
+    color: #D8121A;
+    font-weight: bold;
+}
+
+.blue {
+    color: #1B3E9B;
+    font-weight: bold;
+}
+
+.orange {
+    color: #F15A24;
+    font-weight: bold;
 }
