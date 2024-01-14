@@ -494,7 +494,7 @@ footer {
 
 .modal-broken-img {
     transform: scale(0.8);
-    filter: drop-shadow(2px 4px 6px wheat);
+    /* filter: drop-shadow(2px 4px 6px wheat); */
 }
 
 .rating {
