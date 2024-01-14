@@ -12,14 +12,14 @@ async function fetchData(url) {
     }
 }
 
-async function paginatedFetchData(filter, iteration = 2, createTuple = false) {
+async function paginatedFetchData(filter, startingPageFactor = 0, iteration = 3, createTuple = false, ) {
     try {
         const promises = [];
-        
         const totalPages = iteration;
+        const startingPage = startingPageFactor * iteration;
 
-        for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-            const pageUrl = `${apiUrl}?page=${currentPage}&${filter}`;
+        for (let i = 1; i <= totalPages; i++) {
+            const pageUrl = `${apiUrl}?page=${startingPage + i}&${filter}`;
             promises.push(fetchData(pageUrl));
         }
     
@@ -119,7 +119,8 @@ window.addEventListener('load', function() {
 
 async function init(){
     try {
-        const initialMostRatedList = await paginatedFetchData('sort_by=-imdb_score', 3, true);
+        const initialMostRatedList = await paginatedFetchData('sort_by=-imdb_score', 0, 3, true);
+        console.log(initialMostRatedList);
         const topMovie = await setTopMovie(initialMostRatedList[0]);
         const topRatedMoviesSection = new MovieRow('sort_by=-imdb_score', 'topRatedMoviesSection', 7, data = initialMostRatedList[1]);   
         const fantasySection = new MovieRow('genre=fantasy&sort_by=-imdb_score', 'fantasySection');   

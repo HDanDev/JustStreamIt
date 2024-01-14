@@ -7,8 +7,13 @@ body {
     margin: 0;
 }
 
+.d-none {
+    display: none;
+}
+
 button {
-    background-color: black;
+    /* background-color: black; */
+    background-color: #a12727;
     border: none;
     border-radius: 4px;
     color: wheat;
@@ -26,7 +31,8 @@ button:hover {
     transform: scale(110%);
     color: white;
     box-shadow: none;
-    background-color: grey;
+    background-color: #ff7070;
+    /* background-color: grey; */
 }
 
 .menu {
@@ -395,11 +401,13 @@ footer {
     background: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(3px);
 }
 
 #modalContainer {
     position: relative;
-    background: #fff;
+    background: #000000;
+    /* background: #fff; */
     padding: 20px;
     border-radius: 8px;
     max-width: 600px;
