@@ -88,7 +88,7 @@ async function setTopMovie(movie){
     playIcon.classList.add('icon-play');
 
     playBtn.appendChild(playIcon);
-
+    
     const description = document.createElement('p');
     description.classList.add('top-movie-description');
     description.innerText = `${topMovie.description}`;
@@ -96,6 +96,8 @@ async function setTopMovie(movie){
     descriptionBlock.appendChild(topMovieTitle);
     descriptionBlock.appendChild(playBtn);
     descriptionBlock.appendChild(description);
+
+    playBtn.addEventListener('click', () => displayMovieDetails(topMovie));
 
     const imgBlock = document.createElement('div');
     imgBlock.classList.add('top-movie-img-block');
@@ -111,6 +113,10 @@ async function setTopMovie(movie){
     topMovieDetailBlock.appendChild(descriptionBlock);
     topMovieDetailBlock.appendChild(imgBlock);
     topMovieBlock.appendChild(topMovieDetailBlock);
+}
+
+async function displayMovieDetails(movie) {
+    const movieModal = new MovieModal(movie);   
 }
 
 window.addEventListener('load', function() {
