@@ -128,8 +128,6 @@ class MovieModal {
         detailsBlock.appendChild(descriptionBlock);
         detailsBlock.appendChild(imgBlock);
     
-        // img.addEventListener('click', () => displayImgLightBox(img));
-        
         modal.appendChild(backgroundImage);
         modal.appendChild(modalCloseIcon);
         modal.appendChild(movieTitleBlock);

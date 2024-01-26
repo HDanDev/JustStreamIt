@@ -92,13 +92,11 @@ class MovieRow {
 
         if (isClickingRight) {
         const newSample = this.currentIndex * this.sampleSize;
-        console.log(`slice(${newSample}, ${newSample + this.sampleSize})`);
             moviesSample = this.data.slice(newSample, newSample + this.sampleSize); 
             try {
                 const resultArray = await paginatedFetchData(this.filter, this.currentIndex);
                 
                 this.data = [...this.data, ...resultArray];
-                console.log(this.data);
                 this.currentIndex += 1;
             } 
             catch (error) {
@@ -107,7 +105,6 @@ class MovieRow {
         }
         else {
             const newSample = (this.currentIndex - 2) * this.sampleSize;
-            console.log(`slice(${newSample - this.sampleSize * 2}, ${newSample})`);
             moviesSample = this.data.slice(newSample, newSample + this.sampleSize); 
             this.currentIndex -= 1;
         }

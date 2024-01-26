@@ -126,7 +126,6 @@ window.addEventListener('load', function() {
 async function init(){
     try {
         const initialMostRatedList = await paginatedFetchData('sort_by=-imdb_score', 0, 3, true);
-        console.log(initialMostRatedList);
         const topMovie = await setTopMovie(initialMostRatedList[0]);
         const topRatedMoviesSection = new MovieRow('sort_by=-imdb_score', 'topRatedMoviesSection', 7, data = initialMostRatedList[1]);   
         const fantasySection = new MovieRow('genre=fantasy&sort_by=-imdb_score', 'fantasySection');   
