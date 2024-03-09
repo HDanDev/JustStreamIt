@@ -6,19 +6,19 @@ This project aims to create a website that displays information about movies fro
 
 ## Installation
 
-1. First, you will have to setup an run a local server for the API to be accessible, to do so please follow the steps on the link below:
+1. First, you will have to setup and run a local server for the API to be accessible. To do so, please follow the steps on the link below:
 
    ```bash
    https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR
+   ```
 
-2. Clone this repository:
-
-Once the server is running on your machine you are clear to clone this project:
+2. Clone this repository once the server is running on your machine:
 
    ```bash
    git clone https://github.com/HDanDev/JustStreamIt
+   ```
 
-3. Simply open the index.html in your favourite browser by double-clicking on it.
+3. Simply open the `index.html` in your favorite browser by double-clicking on it.
 
 ### Specifications
 
