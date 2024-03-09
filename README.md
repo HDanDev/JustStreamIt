@@ -24,16 +24,16 @@ This project aims to create a website that displays information about movies fro
 
 The website must adhere to the following specifications:
 
-    Use the OCMovies API to retrieve movie data.
-    Display top-rated movies in different categories, including a category for "Top Rated Movies" based on IMDb score.
-    Present a user interface inspired by Netflix, featuring areas such as "Best Movie", "Top Rated Movies", and three custom categories.
-    Allow navigation between movies in the "Top Rated Movies" area by scrolling horizontally through the films.
-    Display movie details in a modal window when clicking on the movie button or movie image.
+ * Use the OCMovies API to retrieve movie data.
+ * Display top-rated movies in different categories, including a category for "Top Rated Movies" based on IMDb score.
+ * Present a user interface inspired by Netflix, featuring areas such as "Best Movie", "Top Rated Movies", and three custom categories.
+ * Allow navigation between movies in the "Top Rated Movies" area by scrolling horizontally through the films.
+ * Display movie details in a modal window when clicking on the movie button or movie image.
 
 Technologies Used
 
 This project uses the following technologies:
 
-    HTML, CSS for page structure and styling.
-    JavaScript (Vanilla) for programming logic and event handling.
-    OCMovies API for fetching movie data.
+ * HTML, CSS for page structure and styling.
+ * JavaScript (Vanilla) for programming logic and event handling.
+ * OCMovies API for fetching movie data.
