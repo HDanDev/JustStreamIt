@@ -1,4 +1,5 @@
 body {
+
     font-family: Roboto, Comfortaa, Arial, sans-serif;
     background-color: black;
     color: wheat;
@@ -28,7 +29,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    transform: scale(110%);
+    transform: scale(1.1);
     color: white;
     box-shadow: none;
     background-color: #ff7070;
@@ -102,7 +103,7 @@ button:hover {
 
 .menu-nav-item:hover {
     color: rgb(255, 244, 223);
-    transform: scale(110%);
+    transform: scale(1.1);
     background-color: unset;
     cursor: pointer;
 }
@@ -115,7 +116,7 @@ button:hover {
 
 .menu-profile-block:hover .menu-profile-name {
     color: rgb(255, 244, 223);
-    transform: scale(110%);
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -215,8 +216,12 @@ h1 {
     height: 312px;
     width: 90%;
     background-color: #ffffff1f;
-    border: 3px solid linear-gradient(to right, black, rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), black);
     border-radius: 8px;
+}
+
+.best-movie-section::before {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, black, rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), rgb(170, 0, 0), rgb(209, 143, 0), rgb(226, 211, 0), black);
 }
 
 #backgroundImage {
@@ -276,11 +281,11 @@ h1 {
 }
 
 .adjusted-left {
-    transform: translateX(9px) scaleY(110%);
+    transform: translateX(9px) scaleY(1.1);
 }
 
 .adjusted-right {
-    transform: translateX(-9px) scaleY(110%);
+    transform: translateX(-9px) scaleY(1.1);
 }
 
 .carousel-left-arrow i, 
@@ -300,7 +305,7 @@ h1 {
 
 .carousel-left-arrow:hover i,
 .carousel-right-arrow:hover i {
-    transform: scale(180%);
+    transform: scale(1.8);
     color: rgb(255, 242, 216);
 }
 
@@ -349,7 +354,7 @@ h1 {
 
 .thumbnail-container:hover {
     cursor: pointer;
-    transform: scale(110%);
+    transform: scale(1.1);
 }
 
 .thumbnail-container:hover h2 {
@@ -473,7 +478,7 @@ footer {
 
 #closeModalBtn:hover {
     color: rgb(202, 73, 34);
-    transform: scale(120%);
+    transform: scale(1.2);
 }
 
 .modal-imdb-rating-block {
